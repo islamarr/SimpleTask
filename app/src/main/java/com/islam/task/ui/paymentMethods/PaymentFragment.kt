@@ -23,8 +23,11 @@ import timber.log.Timber
 class PaymentFragment : BaseFragment<MainFragmentBinding>(), KodeinAware {
 
     private lateinit var viewModel: PaymentViewModel
+
     private val factory: PaymentViewModelFactory by instance()
+
     private lateinit var paymentAdapter: PaymentAdapter
+
     private lateinit var applicableList: MutableList<Applicable>
 
     override val kodein by kodein()
