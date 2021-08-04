@@ -1,14 +1,10 @@
 package com.islam.task.data.repositories
 
-import com.islam.task.data.network.MyTaskApi
-import com.islam.task.data.network.SafeApiRequest
+import com.islam.task.data.Resource
 import com.islam.task.data.network.response.MainResponse
 
+interface PaymentRepository {
 
-class PaymentRepository(private val api: MyTaskApi) : SafeApiRequest() {
-
-    suspend fun getPaymentMethods(): MainResponse {
-        return apiRequest { api.getPaymentMethods() }
-    }
+    suspend fun getPaymentMethods(): Resource<MainResponse>
 
 }
