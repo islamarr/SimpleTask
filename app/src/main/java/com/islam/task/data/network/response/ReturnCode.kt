@@ -1,6 +1,6 @@
 package com.islam.task.data.network.response
 
 data class ReturnCode(
-    val name: String, // OK
-    val source: String // GATEWAY
+    val name: String? = null, // OK
+    val source: String? = null // GATEWAY
 )
