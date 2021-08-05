@@ -9,8 +9,9 @@ buildscript {
     ext.livedata_version = "2.3.1"
     ext.androidx_test_espresso = "3.4.0"
     ext.hamcrestVersion = "1.3"
-    ext.fragment_version = "1.3.5"
+    ext.fragment_version = "1.3.6"
     ext.coroutinesVersion = "1.5.0"
+    ext.androidXTestCoreVersion = "1.4.0"
 
     repositories {
         google()
