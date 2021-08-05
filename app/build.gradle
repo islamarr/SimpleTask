@@ -109,6 +109,11 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-contrib:$androidx_test_espresso"
     androidTestImplementation "androidx.test.espresso:espresso-idling-resource:$androidx_test_espresso"
     androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
+    androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
+    // Hilt testing dependency
+    androidTestImplementation "com.google.dagger:hilt-android-testing:$hilt_version"
+    // Make Hilt generate code in the androidTest folder
+    kaptAndroidTest "com.google.dagger:hilt-android-compiler:$hilt_version"
 
     debugImplementation "androidx.fragment:fragment-testing:$fragment_version"
     debugImplementation "androidx.test:core:$androidXTestCoreVersion"

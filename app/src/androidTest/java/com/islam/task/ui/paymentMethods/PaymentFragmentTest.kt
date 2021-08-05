@@ -2,7 +2,6 @@ package com.islam.task.ui.paymentMethods
 
 import android.os.Bundle
 import androidx.fragment.app.testing.launchFragmentInContainer
-import androidx.fragment.app.viewModels
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.MediumTest
 import com.islam.task.R
