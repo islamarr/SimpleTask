@@ -3,41 +3,38 @@ package com.islam.task.ui.paymentMethods
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.islam.task.data.Resource
 import com.islam.task.data.network.response.Applicable
 import com.islam.task.databinding.MainFragmentBinding
 import com.islam.task.ui.BaseFragment
 import com.islam.task.ui.adapters.PaymentAdapter
-import org.kodein.di.KodeinAware
-import org.kodein.di.android.x.kodein
-import org.kodein.di.generic.instance
+import dagger.hilt.android.AndroidEntryPoint
 
 
-class PaymentFragment : BaseFragment<MainFragmentBinding>(), KodeinAware {
+@AndroidEntryPoint
+class PaymentFragment : BaseFragment<MainFragmentBinding>() {
 
-    private lateinit var viewModel: PaymentViewModel
-
-    private val factory: PaymentViewModelFactory by instance()
+    private val viewModel: PaymentViewModel by viewModels()
 
     private lateinit var paymentAdapter: PaymentAdapter
 
     private lateinit var applicableList: MutableList<Applicable>
-
-    override val kodein by kodein()
 
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> MainFragmentBinding
         get() = MainFragmentBinding::inflate
 
     override fun setupOnViewCreated(view: View) {
 
-        viewModel = ViewModelProvider(this, factory).get(PaymentViewModel::class.java)
-
         viewModel.getPaymentMethods()
 
         startObserver()
+
+        binding.toolbar.backBtn.setOnClickListener {
+            requireActivity().onBackPressed()
+        }
 
     }
 

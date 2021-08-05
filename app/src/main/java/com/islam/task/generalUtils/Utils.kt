@@ -2,7 +2,7 @@ package com.islam.task.generalUtils
 
 import android.content.Context
 import android.net.ConnectivityManager
-import org.kodein.di.android.x.BuildConfig
+import androidx.viewbinding.BuildConfig
 
 object Utils {
 

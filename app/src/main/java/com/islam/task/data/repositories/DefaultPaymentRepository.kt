@@ -1,14 +1,15 @@
 package com.islam.task.data.repositories
 
+import android.util.Log
 import com.islam.task.data.Resource
 import com.islam.task.data.network.MyTaskApi
 import com.islam.task.data.network.response.MainResponse
 import com.islam.task.generalUtils.ApiException
 import com.islam.task.generalUtils.NoInternetException
-import timber.log.Timber
+import javax.inject.Inject
 
 
-class DefaultPaymentRepository(private val api: MyTaskApi) : PaymentRepository {
+class DefaultPaymentRepository @Inject constructor(private val api: MyTaskApi) : PaymentRepository {
 
     override suspend fun getPaymentMethods(): Resource<MainResponse> {
         return try {
@@ -21,12 +22,16 @@ class DefaultPaymentRepository(private val api: MyTaskApi) : PaymentRepository {
                 Resource.Error("Something went wrong, try again!")
             }
         } catch (e: ApiException) {
-            Timber.e(e)
+            Log.e(TAG, e.toString())
             Resource.Error("Something went wrong, try again!")
         } catch (ne: NoInternetException) {
-            Timber.w(ne)
+            Log.e(TAG, ne.toString())
             Resource.Error("Make sure you have an active Internet connection!")
         }
+    }
+
+    companion object {
+        private const val TAG = "DefaultPaymentRepositor"
     }
 
 }
