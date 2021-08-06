@@ -1,5 +1,6 @@
 package com.islam.task.ui.adapters
 
+import android.content.Context
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -40,14 +41,19 @@ class PaymentAdapter(
         private var logo: ImageView = itemView.logo
 
         fun bind(listItems: Applicable) {
+
             label.text = listItems.code
 
-            Glide.with(itemView.context).load(Uri.parse(listItems.links.logo))
-                .placeholder(R.drawable.ic_language)
-                .thumbnail(0.1f)
-                .into(logo)
+            loadImage(itemView.context, listItems.links.logo, logo)
 
         }
+    }
+
+    fun loadImage(context: Context, url: String?, logo: ImageView) {
+        Glide.with(context).load(Uri.parse(url))
+            .placeholder(R.drawable.ic_language)
+            .thumbnail(0.1f)
+            .into(logo)
     }
 
 }

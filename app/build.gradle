@@ -114,6 +114,8 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-idling-resource:$androidx_test_espresso"
     androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
     androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
+    androidTestImplementation "org.mockito:mockito-core:$mockitoVersion"
+    androidTestImplementation "com.linkedin.dexmaker:dexmaker-mockito:2.28.1"
     // Hilt testing dependency
     androidTestImplementation "com.google.dagger:hilt-android-testing:$hilt_version"
     // Make Hilt generate code in the androidTest folder

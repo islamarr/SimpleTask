@@ -67,6 +67,7 @@ class PaymentViewModelTest {
         val resultList = (result as Resource.Success).data.networks.applicable
 
         assertThat(resultList, `is`(emptyList()))
+
     }
 
     @Test
