@@ -1,6 +1,7 @@
 package com.islam.task.ui.paymentMethods
 
 import android.os.Bundle
+import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.PerformException
@@ -28,9 +29,9 @@ class PaymentFragmentTest {
 
     @Before
     fun setup(){
+
         launchFragmentInHiltContainer<PaymentFragment>(Bundle(), R.style.Theme_MyTask)
 
-        Thread.sleep(5000)
     }
 
     @Test
