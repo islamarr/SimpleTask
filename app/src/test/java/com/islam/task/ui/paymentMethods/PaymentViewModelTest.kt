@@ -27,13 +27,10 @@ class PaymentViewModelTest {
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
 
-    @get:Rule
-    var mainCoroutineRule = MainCoroutineRule()
-
     private lateinit var viewModel: PaymentViewModel
 
     @Test
-    fun `load PaymentMethods notNull`() {
+    fun `load PaymentMethods with no Nulls vaules then return these values`() {
 
         val applicableItems = mutableListOf<Applicable>()
         applicableItems.add(
@@ -51,6 +48,7 @@ class PaymentViewModelTest {
         val resultList = (result as Resource.Success).data.networks.applicable
 
         assertThat(result, not(nullValue()))
+        assertThat(resultList, `is` (applicableItems))
         assertThat(resultList[0].code, `is`(applicableItems[0].code))
         assertThat(resultList[0].grouping, `is`(applicableItems[0].grouping))
         assertThat(resultList[0].method, `is`(applicableItems[0].method))
@@ -69,5 +67,23 @@ class PaymentViewModelTest {
         val resultList = (result as Resource.Success).data.networks.applicable
 
         assertThat(resultList, `is`(emptyList()))
+    }
+
+    @Test
+    fun `load PaymentMethods with null values then return null`() {
+
+        val applicableItems = mutableListOf<Applicable>()
+        applicableItems.add(Applicable())
+        viewModel = PaymentViewModel(FakePaymentMethodRepo(applicableItems))
+
+        viewModel.getPaymentMethods()
+
+        val result = viewModel.methods.getOrAwaitValue()
+        val resultList = (result as Resource.Success).data.networks.applicable
+
+        assertThat(resultList[0].code, nullValue())
+        assertThat(resultList[0].grouping, nullValue())
+        assertThat(resultList[0].method, nullValue())
+
     }
 }

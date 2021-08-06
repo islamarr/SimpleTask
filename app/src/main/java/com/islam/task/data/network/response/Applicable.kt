@@ -1,16 +1,16 @@
 package com.islam.task.data.network.response
 
 data class Applicable(
-    val code: String, // AMEX
-    val contractData: ContractData,
-    val grouping: String, // CREDIT_CARD
-    val inputElements: List<InputElement>,
-    val label: String, // American Express
-    val links: LinksX,
-    val method: String, // CREDIT_CARD
-    val operationType: String, // CHARGE
-    val recurrence: String, // NONE
-    val redirect: Boolean, // false
-    val registration: String, // OPTIONAL
-    val selected: Boolean // false
+    var code: String? = null, // AMEX
+    var contractData: ContractData = ContractData(),
+    var grouping: String? = null, // CREDIT_CARD
+    var inputElements: List<InputElement> = listOf(),
+    var label: String? = null, // American Express
+    var links: LinksX = LinksX(),
+    var method: String? = null, // CREDIT_CARD
+    var operationType: String? = null, // CHARGE
+    var recurrence: String? = null, // NONE
+    var redirect: Boolean = false, // false
+    var registration: String? = null, // OPTIONAL
+    var selected: Boolean = false // false
 )
