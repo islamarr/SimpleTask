@@ -49,6 +49,10 @@ android {
             force 'androidx.test:monitor:1.4.0-alpha06'
         }
     }
+    testOptions.unitTests {
+        includeAndroidResources = true
+        returnDefaultValues = true
+    }
     packagingOptions {
         exclude 'META-INF/LGPL2.1'
         exclude 'META-INF/AL2.0'
