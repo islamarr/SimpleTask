@@ -8,5 +8,5 @@ sealed class Resource<out T> {
 
 }
 
-val Result<*>.succeeded
+val Resource<*>.succeeded
     get() = this is Resource.Success<*> && data != null

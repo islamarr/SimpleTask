@@ -31,7 +31,7 @@ class DefaultPaymentRepository @Inject constructor(private val api: MyTaskApi) :
     }
 
     companion object {
-        private const val TAG = "DefaultPaymentRepositor"
+        private const val TAG = "DefaultPaymentRepo"
     }
 
 }

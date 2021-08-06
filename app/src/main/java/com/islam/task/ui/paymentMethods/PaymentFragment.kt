@@ -41,7 +41,7 @@ class PaymentFragment : BaseFragment<MainFragmentBinding>() {
     private fun startObserver() {
 
         viewModel.methods.observe(viewLifecycleOwner, Observer {
-            it?.getContentIfNotHandled()?.let { result ->
+            it?.let { result ->
                 when (result) {
                     is Resource.Success -> {
 

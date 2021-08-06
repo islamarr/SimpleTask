@@ -7,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import com.islam.task.data.Resource
 import com.islam.task.data.network.response.MainResponse
 import com.islam.task.data.repositories.PaymentRepository
-import com.islam.task.generalUtils.Event
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -16,14 +15,14 @@ import javax.inject.Inject
 class PaymentViewModel @Inject constructor(private val repository: PaymentRepository) :
     ViewModel() {
 
-    private val _methods = MutableLiveData<Event<Resource<MainResponse>>>()
-    val methods: LiveData<Event<Resource<MainResponse>>> = _methods
+    private val _methods = MutableLiveData<Resource<MainResponse>>()
+    val methods: LiveData<Resource<MainResponse>> = _methods
 
     fun getPaymentMethods() {
 
         viewModelScope.launch {
             val response = repository.getPaymentMethods()
-            _methods.value = Event(response)
+            _methods.value = response
         }
 
     }
