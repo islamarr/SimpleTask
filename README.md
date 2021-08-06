@@ -10,4 +10,4 @@
 7- Repository <br>
 8- Navigation component <br>
 9- Data Binding <br>
-10- Unit testing <br>
+10- Unit testing (local tests + instrumented tests) <br>
