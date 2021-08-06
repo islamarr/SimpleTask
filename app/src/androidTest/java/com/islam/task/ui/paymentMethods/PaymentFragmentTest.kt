@@ -9,17 +9,27 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.MediumTest
 import com.islam.task.R
+import com.islam.task.launchFragmentInHiltContainer
+import dagger.hilt.android.testing.HiltAndroidRule
+import dagger.hilt.android.testing.HiltAndroidTest
+import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
 @MediumTest
 @RunWith(AndroidJUnit4::class)
+@HiltAndroidTest
 class PaymentFragmentTest {
+
+    @get:Rule
+    var hiltRule = HiltAndroidRule(this)
 
     @Test
     fun activeLaunchPaymentFragment() {
 
-        launchFragmentInContainer<PaymentFragment>(Bundle(), R.style.Theme_MyTask)
+        launchFragmentInHiltContainer<PaymentFragment>(Bundle(), R.style.Theme_MyTask)
+
+        Thread.sleep(6000)
 
         onView(withId(R.id.list))
             .perform(
@@ -27,6 +37,8 @@ class PaymentFragmentTest {
                     hasDescendant(withText("VISA"))
                 )
             )
+
+        Thread.sleep(6000)
 
     }
 }
