@@ -13,12 +13,13 @@ import com.islam.task.R
 import com.islam.task.launchFragmentInHiltContainer
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
-
+@ExperimentalCoroutinesApi
 @MediumTest
 @RunWith(AndroidJUnit4::class)
 @HiltAndroidTest
