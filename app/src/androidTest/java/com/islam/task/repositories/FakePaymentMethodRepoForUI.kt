@@ -6,6 +6,10 @@ import com.islam.task.data.repositories.PaymentRepository
 
 class FakePaymentMethodRepoForUI : PaymentRepository {
 
+    companion object {
+        val LAST_ITEM_ID = 30
+    }
+
     private var shouldReturnNetworkError = false
     private val applicableItems = mutableListOf<Applicable>()
 
@@ -23,7 +27,7 @@ class FakePaymentMethodRepoForUI : PaymentRepository {
     }
 
     override suspend fun getPaymentMethods(): Resource<MainResponse> {
-        for (i in 1..30) {
+        for (i in 1..LAST_ITEM_ID) {
             applicableItems.add(createItem(i))
         }
 
