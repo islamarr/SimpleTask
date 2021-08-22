@@ -16,12 +16,10 @@ import com.islam.task.launchFragmentInHiltContainer
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import org.hamcrest.CoreMatchers.*
 import org.hamcrest.Matcher
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import org.junit.runner.Description
 import org.junit.runner.RunWith
 
 
@@ -51,7 +49,7 @@ class PaymentFragmentTest {
     @Test
     fun check_isItemTextDisplayed() {
 
-        onView(withId(R.id.list)).check(matches(atPosition(0, hasDescendant(withText("VISA")))))
+        onView(withId(R.id.list)).check(matches(atPosition(0, hasDescendant(withText("VISA_1")))))
 
     }
 
@@ -78,7 +76,7 @@ class PaymentFragmentTest {
         onView(withId(R.id.list))
             .perform(
                 RecyclerViewActions.scrollTo<RecyclerView.ViewHolder>(
-                    hasDescendant(withText("VISA"))
+                    hasDescendant(withText("VISA_15"))
                 )
             )
 
